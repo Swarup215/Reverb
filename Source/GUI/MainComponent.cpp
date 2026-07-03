@@ -51,16 +51,8 @@ MainComponent::MainComponent(ReverseFlowAudioProcessor& p)
     addAndMakeVisible(savePresetBtn);
     savePresetBtn.onClick = [this]()
     {
-        juce::AlertWindow window("Save Preset", "Enter preset name:", juce::AlertWindow::NoIcon);
-        window.addTextEditor("name", "");
-        window.addButton("Save", 1);
-        window.addButton("Cancel", 0);
-        if (window.runModalLoop() == 1)
-        {
-            const auto name = window.getTextEditorContents("name");
-            if (name.isNotEmpty())
-                presetManager.savePreset(name);
-        }
+        const auto presetName = "UserPreset-" + juce::Time::getCurrentTime().formatted("%Y%m%d-%H%M%S");
+        presetManager.savePreset(presetName);
     };
 
     addAndMakeVisible(loadPresetBtn);
