@@ -20,10 +20,14 @@ jobs:
       - name: Build
         run: cmake --build build --config Release --parallel
 
+      - name: List Build Artifacts
+        run: |
+          Get-ChildItem -Recurse build/ReverseFlow_artefacts | Format-Table FullName
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ReverseFlow-Windows
           path: |
-            build/ReverseFlow_artefacts/Release/VST3/
-            build/ReverseFlow_artefacts/Release/Standalone/
+            build/ReverseFlow_artefacts/Release/VST3/**
+            build/ReverseFlow_artefacts/Release/Standalone/**
