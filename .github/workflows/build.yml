@@ -29,5 +29,5 @@ jobs:
         with:
           name: ReverseFlow-Windows
           path: |
-            build/ReverseFlow_artefacts/Release/VST3/**
-            build/ReverseFlow_artefacts/Release/Standalone/**
+            build/ReverseFlow_artefacts/Release/VST3/**/*
+            build/ReverseFlow_artefacts/Release/Standalone/**/*
